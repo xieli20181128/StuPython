@@ -14,4 +14,3 @@ for n in range(1, 10000):         #求出10000以内的完美数
             num += m
     if n == num:
         print(n)
-
