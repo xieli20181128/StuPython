@@ -65,7 +65,7 @@
 # test2(10)
 
 # 3.在函数中，返回多个值，返回的多个值，放在一个元组里
-def test3( ):
-    return 1,2,3,4,5,6,7,8,9
-rs = test3( )
-print(rs)
+# def test3( ):
+#     return 1,2,3,4,5,6,7,8,9
+# rs = test3( )
+# print(rs)
