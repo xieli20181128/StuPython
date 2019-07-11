@@ -136,34 +136,102 @@
 #               定义：生成器表达式，我个人认为还不如叫列表生成器，就是把列表表达式改变了一下，变成了一个生成器。
 #               而且这种改变非常简单，就是把外[]换成了（）就创建了一个generator。
 
-3. 元组的使用
+# 3. 元组的使用
+#
+#    3.1 定义元组：元组与列表类似，不同之处在于元组的元素不能修改。
+#    3.2 元组的表示：定义元组使用圆括号（小括号），元组中的元素同样也使用逗号分隔，如t1=（1，2，3，4，5）；t2=（1，'a',2,'b'）
+#    3.3 使用元组中的值
+#         tup1 = ('physics', 'chemistry', 1997, 2000)       tup1[0]:  physics
+#         tup2 = (1, 2, 3, 4, 5, 6, 7 )                     tup2[1:5]:  (2, 3, 4, 5)
+#    3.4 修改元组变量：元组中的元素值是不允许修改的，但我们可以对元组进行连接组合
+#              tup1 = (12, 34.56)      tup2 = ('abc', 'xyz')     修改元组tup1[0]=100 这个操作是非法的。
+#              tup3=tup1 + tup2    print tup3    结果是：(12, 34.56, 'abc', 'xyz')
+#    3.5 元组和列表转换
+#        3.5.1 将字符串转换成列表，需要使用字符串进行分割，使用字符串方法split（），split（）方法会把字符串按照其中的空白字符进行分隔，最终返回一个列表
+#              str_a=zhang san    list_a=str_a.split( )   print(list_a)    结果：['zhang','san']
+#        3.5.2 将列表转换成字符串：使用join（）
+#              str_a=['zhang','san']  str_a=" ".join(list_a)  print(str_a)   结果：zhang  san
+#
+# 注意： 元组中只包含一个元素时，需要在元素后面添加逗号来消除歧义  tup1=（50，） 这样才会被识别成元组；如果不加逗号，只会输出50就不对了
 
-   3.1 定义元组：元组与列表类似，不同之处在于元组的元素不能修改。
-   3.2 元组的表示：定义元组使用圆括号（小括号），元组中的元素同样也使用逗号分隔，如t1=（1，2，3，4，5）；t2=（1，'a',2,'b'）
-   3.3 使用元组中的值
-   3.4 修改元组变量
-   3.5 元组和列表转换
+# 4.集合基本用法
+#   4.1 集合和列表的区别
+#       集合（set）是一个无序的不重复元素序列
+#       列表处理一组有序项目的数据结构，即可以在一个列表中存储一个序列的项目
+#   4.2 创建集合
+#       可以使用大括号 set{ } 或者 set() 函数创建集合；创建一个空集合必须用 set() 而不是 { }，因为 { } 是用来创建一个空字典。
+#   4.3 添加元素
+#       4.3.1  s.add( x )，将元素x添加到集合s中，如果元素已存在，则不进行任何操作。例如：
+#              thisset = set(("Google", "Runoob", "Taobao"))
+#              thisset.add("Facebook")
+#              print(thisset)
+#              结果：{'Taobao', 'Facebook', 'Google', 'Runoob'}
+#       4.3.2 s.update( x ) 也可以添加元素，且参数可以是列表，元组，字典等，x可以有多个，用逗号分开。
+#             thisset = set(("Google", "Runoob", "Taobao"))
+#             thisset.update({1,3})
+#             print(thisset)
+#             结果：{1, 3, 'Google', 'Taobao', 'Runoob'}
+#   4.4 删除元素
+#       4.4.1 s.remove( x )        将元素 x 从集合 s 中移除，如果元素不存在，则会发生错误。
+#            thisset = set(("Google", "Runoob", "Taobao"))
+#            thisset.remove("Taobao")
+#            print(thisset)
+#            结果：{'Google', 'Runoob'}
+#       4.4.2 s.discard( x )   也是移除集合中的元素，且如果元素不存在，不会发生错误
+#            thisset = set(("Google", "Runoob", "Taobao"))
+#            thisset.discard("Facebook")            不会出错的
+#            print(thisset)
+#            结果：{'Taobao', 'Google', 'Runoob'}
+#       4.4.3 s.pop( )      可以设置随机删除集合中的一个元素
+#            thisset = set(("Google", "Runoob", "Taobao", "Facebook"))
+#            x = thisset.pop()
+#            print(x)
+#            结果：Runoob          多次执行测试结果都不一样。在交互模式，pop 是删除集合的第一个元素（排序后的集合的第一个元素）
+#   4.5 清空
+#       s.clear()  清空集合 s
+#       thisset = set(("Google", "Runoob", "Taobao"))
+#       thisset.clear()
+#       print(thisset)
+#       结果：set( )
+#
+#   4.6 集合常用操作
+#      返回集合的交集：intersection()
+#      返回两个集合的并集：union()
+#      返回多个集合的差集：difference()
+#      对称差：symmetric_difference( )
+#      判断指定集合是否为该方法参数集合的子集：issubset()
+#      超集：issuperset( )
 
-注意： 元组中只包含一个元素时，需要在元素后面添加逗号来消除歧义  tup1=（50，） 这样才会被识别成元组；如果不加逗号，只会输出50就不对了
-
-4.集合基本用法
-  4.1 集合和列表的区别
-  4.2 创建集合
-  4.3 添加元素
-  4.4 删除元素
-  4.5 清空
-  4.6 集合常用操作
-交集、并集、差集、对称差、子集、超集
-
-5.字典的基本用法
-  5.1 字典的特点
-  5.2 创建字典
-  5.3 添加元素
-  5.4 删除元素
-  5.5 取值
-  5.6 清空
-  5.7 字典常用操作
-     5.7.1 keys（）方法
-     5.7.2 values（）方法
-     5.7.3 items（）方法
-     5.7.4 setdefault（）方法
+# 5.字典的基本用法
+#   5.1 字典的特点：字典的每个键值(key=>value)对用冒号(:)分割，每个对之间用逗号(,)分割，整个字典包括在花括号({})中
+#   5.2 创建字典
+#       d = {key1 : value1, key2 : value2 }    键必须是唯一的，但值则不必。值可以取任何数据类型，但键必须是不可变的，如字符串，数字或元组
+#       一个实例：testDict={'time':'时间'，'machine':'机器','time machine':'时间机器'}
+#
+#       访问字典里的值：dict = {'Name': 'Runoob', 'Age': 7, 'Class': 'First'}
+#                       print ("dict['Name']: ", dict['Name'])                输出结果：dict['Name']:  Runoob
+#                       print ("dict['Age']: ", dict['Age'])                  输出结果：dict['Age']:  7
+#       注意：如果用字典里没有的键访问数据，会输出错误
+#
+#   5.3 添加元素：向字典添加新内容的方法是增加新的键/值对，修改或删除已有键/值对
+#       dict = {'Name': 'Runoob', 'Age': 7, 'Class': 'First'}
+#       dict['Age'] = 8                      更新 Age                 dict['Age']:  8
+#       dict['School'] = "菜鸟教程"          添加信息                 dict['School']:  菜鸟教程
+#
+#   5.4 删除元素：显示删除一个字典用del命令
+#       dict = {'Name': 'Runoob', 'Age': 7, 'Class': 'First'}
+#       del dict['Name']         删除键 'Name'
+#       del dict                 删除字典
+#
+#   5.5 取值
+#       dict.get(key, default=None)
+#
+#   5.6 清空
+#       dict = {'Name': 'Runoob', 'Age': 7, 'Class': 'First'}
+#       dict.clear( )
+#
+#   5.7 字典常用操作
+#      5.7.1 keys（）方法：以列表返回一个字典所有的键
+#      5.7.2 values（）方法：以列表返回字典中的所有值
+#      5.7.3 items（）方法：以列表返回可遍历的(键, 值) 元组数组
+#      5.7.4 setdefault（）方法：get()方法 类似, 如果键不存在于字典中，将会添加键并将值设为默认值
