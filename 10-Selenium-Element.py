@@ -1,5 +1,5 @@
 #-*- coding: utf-8 -*-
-
+'''
 1.selenium基础实战之定位网页元素技巧
    简介：讲解使用selenium定位网页元素
         find_element_by_id，find_element_by_name，find_element_by_class_name
@@ -66,3 +66,4 @@
       1.6.2 多个元素根据下标超出范围，没有0，从1开始
       解决办法：
                换其他方式定位元素
+'''
