@@ -87,7 +87,7 @@
 #                 def test_one(self):
 #                     print("test_one 小D来了")
 #                     self.assertEqual（self.name, "小D课堂"，msg = "名字不对"）  # 断言是否相同
-# 
+#
 #                     def test_two(self):
 #                         print("test_two 前端来啦")
 #                         # 断言是否为True，msg是断言判断错误的提示信息
@@ -166,8 +166,7 @@
 #                                     fp = open("./" + file_prefix + "_result.html"，"wb")
 #
 #                                     # stream定义一个测试报告写入的文件，title就是标题，description就是描述
-#                                     runner = HTMLTestRunner.HTMLTestRunner(stream=fp,
-#                                                                            title=u"小D课堂 测试报告"，description = u"测试用例执行情况")
+#                                     runner = HTMLTestRunner.HTMLTestRunner(stream=fp,title=u"小D课堂 测试报告"，description = u"测试用例执行情况")
 #                                     runner.run(suite)
 #                                     fp.close()
 #

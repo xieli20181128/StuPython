@@ -65,7 +65,7 @@ login_ele = driver.find_element_by_css_selector("#login")
 ActionChains（driver）.click(login_ele).perform()
 
 输入用户名和密码:
-driver.find_element_by_id("phone").clear    #情况输入框内容
+driver.find_element_by_id("phone").clear    #清空输入框内容
 driver.find_element_by_id("phone").send_keys("1382832389")
 
 driver.find_element_by_id("pwd").clear
